@@ -1,12 +1,29 @@
-import tensorflow as tf
-from tensorflow.keras import layers, models
-import matplotlib.pyplot as plt
+### Libraries
+# For FCN - Fully Convolutional Networks
 import os
+import keras
+os.environ['KERAS_BACKEND'] = 'tensorflow'
+from keras import ops
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+
+# For the dataset
 import skimage.io
 from mnist import MNIST
 import gzip
-import numpy as np
+###
 
+def __init__():
+    NUM_CLASSES = 27
+    INPUT_HEIGHT = 28
+    INPUT_WIDTH = 28
+    LEARNING_RATE = 1e-3
+    WEIGHT_DECAY = 1e-4
+    EPOCHS = 20
+    BATCH_SIZE = 32
+    SHUFFLE = True
+    
 def display_images(image_path):
     img = skimage.io.imread(image_path)
     plt.figure(figsize=(10, 10))
@@ -29,3 +46,4 @@ if __name__ == "__main__":
     # image = np.asarray(data[0]).squeeze()
     # plt.imshow(image)
     # plt.show()
+    print() 
